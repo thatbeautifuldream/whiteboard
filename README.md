@@ -2,4 +2,4 @@
 
 # Project is live, [here!](https://thatbeautifuldream.github.io/whiteboard/)
 
-![Landing Page]()
+![Landing Page](https://github.com/thatbeautifuldream/whiteboard/blob/main/landing-page.gif)
