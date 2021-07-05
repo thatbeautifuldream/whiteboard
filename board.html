@@ -1,92 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- header -->
-    <header class="text-gray-600 body-font">
-      <div
-        class="
-          container
-          mx-auto
-          flex flex-wrap
-          p-5
-          flex-col
-          md:flex-row
-          items-center
-        "
-      >
-        <a
-          class="
-            flex
-            title-font
-            font-medium
-            items-center
-            text-gray-900
-            mb-4
-            md:mb-0
-          "
-        >
-          <span class="ml-3 text-xl">✍️ &nbsp Whiteboard</span>
-        </a>
-        <nav
-          class="
-            md:ml-auto
-            flex flex-wrap
-            items-center
-            text-base
-            justify-center
-          "
-        >
-          <a class="mr-5 hover:text-gray-900">First Link</a>
-          <a class="mr-5 hover:text-gray-900">Second Link</a>
-          <a class="mr-5 hover:text-gray-900">Third Link</a>
-          <a class="mr-5 hover:text-gray-900">Fourth Link</a>
-        </nav>
-        <button
-          class="
-            inline-flex
-            items-center
-            bg-gray-100
-            border-0
-            py-1
-            px-3
-            focus:outline-none
-            hover:bg-gray-200
-            rounded
-            text-base
-            mt-4
-            md:mt-0
-          "
-        >
-          Button
-          <svg
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-4 h-4 ml-1"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </button>
-      </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhiteBoard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/8ad2e12fec.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container">
+            <ul class="menu">
+                <li class="menu-options marker dropdownBtn" style="position: relative;">
+                    <i class="fas fa-marker"></i>
+                    <span class="tooltiptext">Pen</span>
+                    <!-- <i class="fas fa-angle-down"></i> -->
+                    <!-- Dropdown -->
+                    <div class="dropdown-content colour_pallet">
+                        <div class="dropdown-color">
+                            <!-- <input type="color" id="colorpicker" value="#0000ff"> -->
+                            <button class="btn" value="black"><i class="fas fa-square" style="color: black;"></i></button>
+                            <button class="btn" value="#5E5E5E"><i class="fas fa-square" style="color: #5E5E5E;"></i></button>
+                            <button class="btn" value="#FFF1AA"><i class="fas fa-square" style="color: #FFF1AA;"></i></button>
+                            <button class="btn" value="#B8DECD"><i class="fas fa-square" style="color: #B8DECD;"></i></button>
+                            <button class="btn" value="#F7C5DA"><i class="fas fa-square" style="color: #F7C5DA;"></i></button>
+                            <button class="btn" value="#58C2BF"><i class="fas fa-square" style="color: #58C2BF;"></i></button>
+                            <button class="btn" value="#F8AD96"><i class="fas fa-square" style="color: #F8AD96;"></i></button>
+                            <button class="btn" value="#FA7811"><i class="fas fa-square" style="color: #FA7811;"></i></button>
+                            <button class="btn" value="#E81313"><i class="fas fa-square" style="color: #E81313;"></i></button>
+                            <button class="btn" value="#39A2DB"><i class="fas fa-square" style="color: #39A2DB;"></i></button>
+                            <button class="btn" value="#1071E5"><i class="fas fa-square" style="color: #1071E5;"></i></button>
+                            <button class="btn" value="yellow"><i class="fas fa-square" style="color: yellow;"></i></button>
+                        </div>
+                        <!-- <input type="color" class="btn" id="colorpicker" value="#0000ff"> -->
+                        <input type="range" class="dropdown-slider slider-pencil" min="1" max="50" value="5">
+                    </div>
+                </li>
+                <li class="menu-options eraser dropdownBtn" style="position: relative;">
+                    <i class="fas fa-eraser"></i>
+                    <span class="tooltiptext">Eraser</span>
+                    <!-- <i class="fas fa-angle-down"></i> -->
+                    <div class="dropdown-content">
+                        <input type="range" class="dropdown-slider slider-eraser" min="1" max="50" value="5">
+                    </div>
+                </li>
+                <li class="menu-options undo">
+                    <span class="tooltiptext">Undo</span>
+                    <i class="fas fa-undo"></i>
+                </li>
+                <li class="menu-options redo">
+                    <span class="tooltiptext">Redo</span>
+                    <i class="fas fa-redo"></i>
+                </li>
+                <li class="menu-options clear">
+                    <span class="tooltiptext">Clear All</span>
+                    <i class="fas fa-trash"></i>
+                </li>
+                <li class="menu-options note">
+                    <span class="tooltiptext">Add Note</span>
+                    <i class="fas fa-sticky-note"></i>
+                </li>
+                <li class="menu-options download">
+                    <span class="tooltiptext">Download</span>
+                    <i class="fas fa-download"></i>
+                </li>
+                <li class="menu-options dark">
+                    <span class="tooltiptext ">Theme</span>
+                    <i class="fas fa-moon" id="theme">
+                    </i>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <!-- Canvas Area -->
-    <canvas id="canvas"></canvas>
 
-    <!-- javascript -->
-    <script src="index.js"></script>
-  </body>
+    <!-- Sticky Note -->
+    <div class=" sticky-note ">
+        <div class="sticky-nav ">
+            <i class="fas fa-window-close close-note " style="color: #b50b0b; "></i>
+            <i class="fas fa-minus-square min-note " style="color: #ffffff; "></i>
+        </div>
+        <textarea class="note-text " cols="40 " rows="10 "></textarea>
+    </div>
+    <div class="sticky-note " id="img-note ">
+        <div class="sticky-nav ">
+            <i class="fas fa-circle close-note " style="color: #b50b0b; "></i>
+            <i class="fas fa-circle min-note " style="color: #a0ef85; "></i>
+        </div>
+        <textarea class="note " cols="40 " rows="10 "></textarea>
+    </div>
+
+    <script src="main.js "></script>
+</body>
+
 </html>
