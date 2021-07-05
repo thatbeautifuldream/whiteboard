@@ -11,8 +11,8 @@
     <title>Whiteboard</title>
   </head>
   <body>
-    <div class="felx flex-col">
-      <a href="https://github.com/you"
+    <div class="flex flex-col h-screen">
+      <div class="bg-gray-50"><a href="https://github.com/you"
         ><img
           loading="lazy"
           width="149"
@@ -21,7 +21,8 @@
           class="attachment-full size-full"
           alt="Fork me on GitHub"
           data-recalc-dims="1"
-      /></a>
+      /></a></div>
+      <div class="bg-gray-50 flex-grow">
       <!-- hero section starts -->
       <section class="text-gray-600 body-font">
         <div
@@ -96,9 +97,6 @@
                 >Start Skribbling ツ</a
               >
             </div>
-            <h2 class="mb-8 text-xl leading-relaxed my-8">
-              Made with ❤️ Martian Team.
-            </h2>
           </div>
           <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <img
@@ -109,7 +107,11 @@
           </div>
         </div>
       </section>
-      <!-- hero section ends -->
-    </div>
+      <!-- hero section ends --></div>
+      <footer class="py-5 bg-gray-600 text-center text-white">
+        Made with ❤️ &nbsp;Team Martian ➡️ &nbsp; <a href="https://discord.com/invite/devsnest">Devsnest</a>
+      </footer>
+  </div>
+    </>
   </body>
 </html>
